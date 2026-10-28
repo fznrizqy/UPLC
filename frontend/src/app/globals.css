@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f4f6fa;
+  --foreground: #1e293b;
+  --card: #ffffff;
+  --card-foreground: #1e293b;
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
+  --sidebar-bg: #0f172a;
+  --sidebar-text: #94a3b8;
+  --sidebar-active: #2563eb;
+  --border: #e2e8f0;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  min-height: 100vh;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Clean moving fade-in animation (crisp, zero blur, zero scaling) */
+@keyframes movingFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-page-entrance {
+  animation: movingFadeIn 320ms ease-out both;
+}
+
+/* Stagger animation for cards */
+.stagger-child > * {
+  animation: movingFadeIn 320ms ease-out both;
+}
+.stagger-child > *:nth-child(1) { animation-delay: 30ms; }
+.stagger-child > *:nth-child(2) { animation-delay: 60ms; }
+.stagger-child > *:nth-child(3) { animation-delay: 90ms; }
+.stagger-child > *:nth-child(4) { animation-delay: 120ms; }
+.stagger-child > *:nth-child(5) { animation-delay: 150ms; }
+.stagger-child > *:nth-child(6) { animation-delay: 180ms; }
+
